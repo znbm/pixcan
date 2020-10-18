@@ -10,10 +10,12 @@ Usage
 -----
 
 For the impatient:
-1. Call `pixcan_init`.
-2. Modify the `pixcan_size`-sized buffer of RGBA8 pixels pointed to by `pixcan`.
-3. Call `pixcan_update` to synchronize the buffer with the screen.
-4. Call `pixcan_poll` in a loop to keep the window open until `Escape` is pressed. 
+1. `#include "pixcan.h"`.
+2. Call `pixcan_init`.
+3. Modify the `pixcan_size`-sized buffer of RGBA8 pixels pointed to by `pixcan`.
+4. Call `pixcan_update` to synchronize the buffer with the screen.
+5. Call `pixcan_poll` in a loop to keep the window open until `Escape` is pressed. 
+6. Compile with `cc `sdl-config --cflags` -o <program> <program>.c -lSDL2 -lm`.
 
 ### Here are the exposed global variables and functions.
 
@@ -48,8 +50,8 @@ Synchronizes the contents of the window with the pixel buffer `pixcan`.
 `bool pixcan_poll()`
 Keeps the window open until `Escape` is pressed or the window is closed.
 
-`void pixcan_wait( uint32_t ms )`
-Keeps the window open for at least `ms` milliseconds unless `Escape` is pressed or the window is closed.
+`void pixcan_wait( double seconds )`
+Keeps the window open for roughly `seconds` seconds unless `Escape` is pressed or the window is closed.
 
 Notes
 -----

@@ -1,5 +1,3 @@
-/* Thanks to http://gigi.nullneuron.net/gigilabs/sdl2-pixel-drawing/ */
-
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -86,10 +84,10 @@ bool pixcan_poll( void )
 	return 1;
 }
 
-void pixcan_wait( uint32_t ms )
+void pixcan_wait( double seconds )
 {
 	int i;
-	for ( i = 0; i < ms / 10; i++ )
+	for ( i = 0; i < seconds * 100.0; i++ )
 	{
 		SDL_PollEvent( &pixcan_event );
 		if ( pixcan_event.type == SDL_QUIT ) pixcan_quit();
